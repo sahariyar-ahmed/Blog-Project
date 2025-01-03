@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Frontend\BloggController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -35,8 +37,11 @@ Route::post('guest/login',[GuestAuthentication::class,'login_post'])->name('gues
 //registration
 Route::get('guest/register',[GuestAuthentication::class,'register'])->name('guest.register');
 Route::post('guest/register',[GuestAuthentication::class,'register_post'])->name('guest.register');
-
-
+//Contact
+Route::get('/contact-us', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact-us', [ContactController::class, 'submit'])->name('contact.submit');
+//about us
+Route::get('fronted/about',[AboutController::class,'index'])->name('frontend.about');
 //Request
 Route::get('/role/request',[RequestController::class,'index'])->name('request.show');
 Route::get('/role/request/accept/{id}',[RequestController::class,'accept'])->name('request.accept');

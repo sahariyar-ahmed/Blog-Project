@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index(){
 
         $features =Blog::where('feature',true)->latest()->take(3)->get();
-        $blogs = Blog::where("status",'active')->latest()->get();
+        $blogs = Blog::where("status",'active')->latest()->paginate(5);
         $categories = Category::where("status",'active')->latest()->take(5)->get();
         return view('frontend.home.index',compact('categories','blogs','features'));
     }

@@ -23,13 +23,13 @@
                                 <p class="text-danger text-center" >{{$message}}</p>
                             @enderror
                         </div>
-                        {{-- <div class="sign-controls form-group">
+                        <div class="sign-controls form-group">
                             <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="rememberMe">
-                                <label class="custom-control-label" for="rememberMe">Remember Me</label>
+                                <input type="checkbox" class="custom-control-input" id="rememberMe">
+                                    <label class="custom-control-label" for="rememberMe">Remember Me</label>
                             </div>
-                            <a href="#" class="btn-link ">Forgot Password?</a>
-                        </div> --}}
+
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="btn-custom">Log in</button>
                         </div>

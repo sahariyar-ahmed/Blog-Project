@@ -15,16 +15,15 @@
                                 <div class="post-overly">
                                     <div class="post-overly-content">
                                         <div class="entry-cat">
-                                            <a href="blog-layout-1.html" class="category-style-2">Branding</a>
+                                            <a href="{{route('frontend.cat.blog',$feature->onecategory->title)}}" class="category-style-2">{{$feature->onecategory->title}}</a>
                                         </div>
                                         <h2 class="entry-title">
-                                            <a href="post-single.html">Architecture is a visual art and the buildings
-                                                speak for them selves </a>
+                                            <a href="post-single.html">{{$feature->title}}</a>
                                         </h2>
                                         <ul class="entry-meta">
-                                            <li class="post-author"> <a href="author.html">Meriam Smith</a></li>
-                                            <li class="post-date"> <span class="line"></span> Fabuary 10 ,2022</li>
-                                            <li class="post-timeread"> <span class="line"></span> 15 mins read</li>
+                                            <li class="post-author"> <a href="author.html">{{$feature->oneuser->name}}</a></li>
+                                            <li class="post-date"> <span class="line"></span> {{Carbon\Carbon::parse($feature->created_at)->format('F d ,Y')}}</li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -88,8 +87,7 @@
                                     <li class="post-date"> <span class="line"></span> {{Carbon\Carbon::parse($blog->created_at)->format('F d ,Y')}}</li>
                                 </ul>
                                 <h5 class="entry-title">
-                                    <a href="{{route('frontend.blog.single',$blog->slug)}}">Brand is just a perception, and perception will match
-                                        reality</a>
+                                    <a href="{{route('frontend.blog.single',$blog->slug)}}">{{$blog->title}}</a>
                                 </h5>
 
                                 <div class="post-btn">
@@ -102,16 +100,13 @@
 
                     <!--pagination-->
                     <div class="pagination">
-                        <div class="pagination-area">
-                            <div class="pagination-list">
-                                <ul class="list-inline">
-                                    <li><a href="#"><i class="las la-arrow-left"></i></a></li>
-                                    <li><a href="#" class="active">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#"><i class="las la-arrow-right"></i></a></li>
-                                </ul>
+                        <div class="container-fluid">
+                            <div class="pagination-area">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                       {{$blogs->links()}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -314,6 +309,9 @@
         </div>
     </div>
 </section>
+
+
+
 
 @endsection
 

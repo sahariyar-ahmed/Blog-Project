@@ -38,7 +38,7 @@
             <div class="header-area ">
                 <!--logo-->
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{route('frontend')}}">
                         <img src="{{asset('frontend')}}/assets/img/logo/logo-dark.png" alt="" class="logo-dark">
                         <img src="{{asset('frontend')}}/assets/img/logo/logo-white.png" alt="" class="logo-white">
                     </a>
@@ -58,10 +58,10 @@
                                     <a class="nav-link" href="author.html"> Authors </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="about.html"> About </a>
+                                    <a class="nav-link {{Route::currentRouteName() == 'frontend.about' ? 'active' : ''}}" href="{{route('frontend.about')}}"> About-us </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html"> Contact </a>
+                                    <a class="nav-link {{Route::currentRouteName() == 'contact' ? 'active' : ''}}"" href="{{route('contact.show')}}"> Contact </a>
                                 </li>
                             </ul>
                         </div>
@@ -89,6 +89,9 @@
                     <!--button-subscribe-->
                     <div class="botton-sub">
                         <a href="{{route('guest.register')}}" class="btn-subscribe">Sign Up</a>
+                    </div>
+                    <div class="botton-sub">
+                        <a href="{{route('guest.login')}}" class="btn-subscribe">Log in</a>
                     </div>
                     <!--navbar-toggler-->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
@@ -216,6 +219,6 @@
         <!-- JS main  -->
         <script src="{{asset('frontend')}}/assets/js/main.js"></script>
 
-
+        {!! NoCaptcha::renderJs() !!}
     </body>
     </html>

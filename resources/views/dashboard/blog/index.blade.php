@@ -40,7 +40,7 @@
                                     <img src="{{asset('uploads/blog')}}/{{ $blog->thumbnail }} "style="width:80px; height:80px;">
                                 </td>
                                 <td>{{ $blog->title }}</td>
-                                <td>{{ $blog->onecategory->title }}</td>
+
 
                                 <td>
                                     <form id="hulk{{ $blog->id }}"
